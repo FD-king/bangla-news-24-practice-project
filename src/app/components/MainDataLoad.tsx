@@ -16,7 +16,9 @@ const MainDataLoad = ({ dataInData }: { dataInData: IMainNewsDataType[] }) => {
             width={600}
           />
         </figure>
-        <div className="badge text-red-500">{firstArticle.category}</div>
+        <div className="badge text-red-500 font-bold text-[15px]">
+          {firstArticle.category}
+        </div>
         <div className="card-body">
           <h2 className="card-title">{firstArticle.title}</h2>
           <p>{firstArticle.description}</p>
@@ -26,7 +28,9 @@ const MainDataLoad = ({ dataInData }: { dataInData: IMainNewsDataType[] }) => {
       <div className="card bg-base-100 w-auto shadow-sm col-span-1 divide-y">
         {otherNews.slice(0, 4).map((newsData) => (
           <div key={newsData.id}>
-            <div className="badge">{newsData.category}</div>
+            <div className="badge text-red-500 font-bold text-[15px]">
+              {newsData.category}
+            </div>
             <div className="card-body">
               <h2 className="card-title">{newsData.title}</h2>
             </div>

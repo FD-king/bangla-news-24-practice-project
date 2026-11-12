@@ -15,14 +15,14 @@ const MainBody = async () => {
     <div className="container mx-auto">
       <div className="grid grid-cols-3 gap-4 ">
         {/*make sure to remove bg*/}
-        <div className="col-span-2 bg-green-500">
+        <div className="col-span-2">
           <MainDataLoad dataInData={dataInData} />
           <div>
             <OtherNewsData dataInData={dataInData} />
           </div>
         </div>
         {/*make sure to remove bg*/}
-        <div className="col-span-1 bg-red-500">
+        <div className="col-span-1">
           <MostRead />
         </div>
       </div>

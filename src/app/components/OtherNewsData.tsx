@@ -5,7 +5,7 @@ import OtherNewsCard from "./OtherNewsCard";
 
 const OtherNewsData = ({ dataInData }: { dataInData: IMainNewsDataType[] }) => {
   const [temp, ...otherNewsArticles] = dataInData;
-  console.log(otherNewsArticles);
+  // console.log(otherNewsArticles);
   return (
     <div>
       <div>

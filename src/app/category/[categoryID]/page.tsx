@@ -2,11 +2,7 @@ import ITypeOfArticlesInMainNewsData from "@/app/types/TypeOfArticlesInMainNewsD
 import Image from "next/image";
 import Link from "next/link";
 
-const CategoryPage = async ({
-  params,
-}: {
-  params: Promise<{ categoryID: string }>;
-}) => {
+const CategoryPage = async ({ params }: { params: { categoryID: string } }) => {
   //data fetch
   const { categoryID } = await params;
   const res = await fetch(
@@ -14,7 +10,7 @@ const CategoryPage = async ({
   );
   const data = await res.json();
   const detailNewsData = data.data;
-  console.log(detailNewsData);
+  // console.log(detailNewsData);
 
   return (
     <div className="container mx-auto">
@@ -24,7 +20,7 @@ const CategoryPage = async ({
 
       <div className="grid grid-cols-3 gap-4 pt-4">
         {detailNewsData.map((news: ITypeOfArticlesInMainNewsData) => (
-          <Link href={news.link} key={news.id}>
+          <Link href={`/NewsDetails/${news.id}`} key={news.id}>
             <div>
               <div className="card bg-base-100 w-auto shadow-sm">
                 <figure>

@@ -6,7 +6,7 @@ const OtherNewsCard = ({
 }: {
   NewsInsideNews: IOtherNewsType;
 }) => {
-  console.log(NewsInsideNews.imageAlt);
+  // console.log(NewsInsideNews.imageAlt);
   return (
     <div>
       <div className="card bg-base-100 w-auto shadow-sm">

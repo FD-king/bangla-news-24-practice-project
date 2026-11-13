@@ -14,7 +14,7 @@ const NavBar = async () => {
     <div className="container mx-auto flex justify-center items-center gap-5 mt-4">
       <Link href="/">Home</Link>
       {filteredNavBarData.map((data: INavDataType, id: string | null) => (
-        <Link key={id} href={data.slug}>
+        <Link key={id} href={`/category/${data.slug}`}>
           {data.title}
         </Link>
       ))}

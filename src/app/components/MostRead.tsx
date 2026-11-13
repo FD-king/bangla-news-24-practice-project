@@ -17,7 +17,7 @@ const MostRead = async () => {
   return (
     <div>
       <h2 className="font-bold text-2xl p-3">সর্বাধিক পঠিত</h2>
-      <div className="">
+      <div>
         {dataInDataOfMostRead.map((data) => (
           <div key={data.id} className="flex gap-2 p-4">
             <span className="text-red-500 text-2xl">{data.rank}</span>

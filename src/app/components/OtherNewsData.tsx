@@ -16,7 +16,10 @@ const OtherNewsData = ({ dataInData }: { dataInData: IMainNewsDataType[] }) => {
             </div>
             <div className="grid grid-cols-3 gap-2 pt-2 ">
               {news.articles.map((newsInsideNews) => (
-                <Link href="" key={newsInsideNews.id}>
+                <Link
+                  href={`NewsDetails/${newsInsideNews.id}`}
+                  key={newsInsideNews.id}
+                >
                   <OtherNewsCard NewsInsideNews={newsInsideNews} />
                 </Link>
               ))}

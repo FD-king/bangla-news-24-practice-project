@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import MainBody from "./components/MainBody";
+import Loading from "./loading";
 
 const page = () => {
   return (
     <div>
-      <Suspense>
+      <Suspense fallback={<Loading />}>
         <MainBody />
       </Suspense>
     </div>

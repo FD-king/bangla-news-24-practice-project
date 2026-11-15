@@ -13,3 +13,4 @@ const page = () => {
 };
 
 export default page;
+// main api link: https://news-api-v2.vercel.app

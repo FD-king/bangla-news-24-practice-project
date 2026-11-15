@@ -9,8 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@better-auth/mongo-adapter": "^1.7.23",
     "@heroui/react": "^3.2.7",
     "@heroui/styles": "^3.2.7",
+    "better-auth": "^1.7.23",
+    "dotenv": "^18.0.10",
+    "mongodb": "^7.9.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -18,6 +22,8 @@
     "react-marquee-text": "^1.0.6"
   },
   "devDependencies": {
+    "@gravity-ui/icons": "^2.23.1",
+    "@iconify-json/gravity-ui": "^1.2.15",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",

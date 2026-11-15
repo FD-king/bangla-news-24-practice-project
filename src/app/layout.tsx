@@ -24,14 +24,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <div>
-          <Suspense>
+          <Suspense
+            fallback={<div className="text-center py-10">Loading Items...</div>}
+          >
             <Header />
             <NavBar />
             <Marquee />
           </Suspense>
         </div>
+
         {children}
-        <Suspense>
+        <Suspense
+          fallback={<div className="text-center py-10">Loading Items...</div>}
+        >
           <Footer />
         </Suspense>
       </body>

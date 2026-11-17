@@ -1,4 +1,6 @@
 import INewsDetailPageType from "@/app/types/newsDetailPageType";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
 const NewsDetailsPage = async ({
   params,
@@ -12,12 +14,20 @@ const NewsDetailsPage = async ({
     `https://news-api-v2.vercel.app/api/article/${newsDetailsID}`,
   );
 
+  if (res.status === 404) {
+    notFound();
+  }
+
   if (!res.ok) {
     throw new Error("Failed to fetch news details");
   }
 
   const data = await res.json();
   const detailNewsData: INewsDetailPageType = data.data;
+
+  if (!detailNewsData) {
+    notFound();
+  }
 
   // Extract description paragraphs
   const descriptionText = detailNewsData.description.blocks
@@ -35,7 +45,6 @@ const NewsDetailsPage = async ({
       timeStyle: "short",
     },
   );
-
   return (
     <main className="min-h-screen bg-white px-4 py-8 text-black sm:px-6">
       <article className="mx-auto max-w-4xl">
@@ -79,9 +88,11 @@ const NewsDetailsPage = async ({
             if (content.type === "image") {
               return (
                 <figure key={index} className="my-8">
-                  <img
+                  <Image
                     src={content.url}
                     alt={content.altText || detailNewsData.title}
+                    width={600}
+                    height={600}
                     className="h-auto w-full rounded-md object-contain"
                   />
 

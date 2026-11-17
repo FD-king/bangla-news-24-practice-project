@@ -1,6 +1,7 @@
 "use client";
 
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
+import { Icon } from "@iconify/react";
 import {
   Button,
   Description,
@@ -11,6 +12,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const SignUpPage = () => {
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
@@ -30,6 +32,17 @@ const SignUpPage = () => {
       redirect("/");
     }
     // console.log(resData, error);
+  };
+
+  const handleGoogleSignUp = async () => {
+    const data = await signIn.social({
+      provider: "google",
+    });
+  };
+  const handleGithubSignUp = async () => {
+    const data = await signIn.social({
+      provider: "github",
+    });
   };
 
   return (
@@ -98,6 +111,29 @@ const SignUpPage = () => {
           <Button type="reset" variant="secondary">
             Reset
           </Button>
+        </div>
+        <div className="flex flex-col gap-4">
+          <Button
+            onClick={() => handleGoogleSignUp()}
+            className="w-80"
+            variant="tertiary"
+          >
+            <Icon icon="devicon:google" />
+            Sign in with Google
+          </Button>
+          <Button
+            onClick={() => handleGithubSignUp()}
+            className="w-80"
+            variant="tertiary"
+          >
+            <Icon icon="mdi:github" />
+            Sign in with GitHub
+          </Button>
+        </div>
+        <div className="flex gap-4 justify-between items-center ">
+          <Link href={"/sign-in"}>
+            <Button variant="secondary">have an account? Sign In</Button>
+          </Link>
         </div>
       </Form>
     </div>

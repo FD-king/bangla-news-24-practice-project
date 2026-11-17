@@ -16,9 +16,11 @@ const UserLoginSection = () => {
       {user ? (
         <div>
           <div className="flex gap-4 items-center py-2">
-            <Avatar>
-              <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
-            </Avatar>
+            <Link href={"/profile"}>
+              <Avatar>
+                <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+              </Avatar>
+            </Link>
             <h2>{user.name}</h2>
           </div>
           <div className="pt-2">

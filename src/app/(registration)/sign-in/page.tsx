@@ -1,5 +1,7 @@
 "use client";
 import { signIn } from "@/lib/auth-client";
+import { Button } from "@heroui/react";
+import { Icon } from "@iconify/react";
 import React from "react";
 
 const SignInPage = () => {
@@ -17,6 +19,17 @@ const SignInPage = () => {
       callbackURL: "/",
     });
     // console.log(resData, error);
+  };
+
+  const handleGoogleSignIn = async () => {
+    const data = await signIn.social({
+      provider: "google",
+    });
+  };
+  const handleGithubSignUp = async () => {
+    const data = await signIn.social({
+      provider: "github",
+    });
   };
   return (
     <div className="flex justify-center container mx-auto p-47">
@@ -46,6 +59,24 @@ const SignInPage = () => {
             Sign In
           </button>
         </fieldset>
+        <div className="flex flex-col gap-4">
+          <Button
+            onClick={() => handleGoogleSignIn()}
+            className="w-80"
+            variant="tertiary"
+          >
+            <Icon icon="devicon:google" />
+            Sign in with Google
+          </Button>
+          <Button
+            onClick={() => handleGithubSignUp()}
+            className="w-80"
+            variant="tertiary"
+          >
+            <Icon icon="mdi:github" />
+            Sign in with GitHub
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import ITypeOfArticlesInMainNewsData from "@/app/types/TypeOfArticlesInMainNewsData";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const CategoryPage = async ({ params }: { params: { categoryID: string } }) => {
   //data fetch
@@ -11,6 +12,9 @@ const CategoryPage = async ({ params }: { params: { categoryID: string } }) => {
   const data = await res.json();
   const detailNewsData = data.data;
   // console.log(detailNewsData);
+  if (!detailNewsData) {
+    notFound();
+  }
 
   return (
     <div className="container mx-auto">

@@ -24,6 +24,7 @@
   "devDependencies": {
     "@gravity-ui/icons": "^2.23.1",
     "@iconify-json/gravity-ui": "^1.2.15",
+    "@iconify/react": "^6.0.4",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",
